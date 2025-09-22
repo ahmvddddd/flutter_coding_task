@@ -46,9 +46,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 Align(
                   alignment: Alignment.center,
                   child: Container(
-                    width: responsiveSize(context, 100),
-                    height: 5,
-                    color: Colors.grey[500],
+                    width: responsiveSize(context, 50),
+                    height: 3,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[500],
+                      borderRadius: BorderRadius.circular(50)
+                      )
                   ),
                 ),
 
@@ -107,24 +110,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             ),
                           ],
                         );
-                        // ListTile(
-                        //   title: Text(
-                        //     lang,
-                        //     style: Theme.of(context).textTheme.bodySmall,
-                        //   ),
-                        //   trailing: Radio<String>(
-                        //     value: lang,
-                        //     groupValue: _selectedLanguage,
-                        //     onChanged: (value) {
-                        //       setState(() => _selectedLanguage = value!);
-                        //       Navigator.pop(context);
-                        //     },
-                        //   ),
-                        //   onTap: () {
-                        //     setState(() => _selectedLanguage = lang);
-                        //     Navigator.pop(context);
-                        //   },
-                        // );
                       },
                     ),
                   ),
@@ -140,6 +125,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -147,121 +133,125 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Padding(
-          padding: EdgeInsets.all(responsiveSize(context, 24)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              // select language button
-              Align(
-                child: GestureDetector(
-                  onTap: () {
-                    _showLanguageSelector(context);
-                  },
-                  child: Container(
-                    width: responsiveSize(context, 120),
-                    height: responsiveSize(context, 32),
-                    padding: EdgeInsets.all(responsiveSize(context, 4)),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                        responsiveSize(context, 20),
-                      ),
-                      border: Border.all(
-                        color: Colors.white,
-                        width: responsiveSize(context, 2),
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          _selectedLanguage,
-                          style: Theme.of(context).textTheme.labelMedium!
-                              .copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(responsiveSize(context, 24)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                // select language button
+                Align(
+                  child: GestureDetector(
+                    onTap: () {
+                      _showLanguageSelector(context);
+                    },
+                    child: Container(
+                      width: responsiveSize(context, 120),
+                      height: responsiveSize(context, 32),
+                      padding: EdgeInsets.all(responsiveSize(context, 4)),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          responsiveSize(context, 20),
                         ),
-                        SizedBox(width: responsiveSize(context, 2)),
-                        Icon(
-                          Icons.expand_more,
+                        border: Border.all(
                           color: Colors.white,
-                          size: responsiveSize(context, 16),
+                          width: responsiveSize(context, 2),
                         ),
-                      ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            _selectedLanguage,
+                            style: Theme.of(context).textTheme.labelMedium!
+                                .copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                          SizedBox(width: responsiveSize(context, 2)),
+                          Icon(
+                            Icons.expand_more,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      vertical: responsiveSize(context, 8),
-                    ),
-                    child: SizedBox(
-                      width: responsiveSize(context, 265),
-                      child: Text(
-                        'Connect with your community wherever you are',
-                        style: Theme.of(context).textTheme.headlineLarge!
-                            .copyWith(color: Colors.white),
-                        softWrap: true,
+          
+                //intro text
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: responsiveSize(context, 8),
                       ),
-                    ),
-                  ),
-
-                  SizedBox(height: responsiveSize(context, 16)),
-                  _onboardingButtons(
-                    context,
-                    false,
-                    CustomColors.button1,
-                    ImageStrings.apple,
-                    'Connect With AppleID',
-                  ),
-                  SizedBox(height: responsiveSize(context, 8)),
-                  _onboardingButtons(
-                    context,
-                    false,
-                    CustomColors.button2,
-                    ImageStrings.google,
-                    'Connect With Google',
-                  ),
-                  SizedBox(height: responsiveSize(context, 8)),
-                  _onboardingButtons(
-                    context,
-                    true,
-                    Colors.transparent,
-                    ImageStrings.mail,
-                    'Connect With E-mail',
-                  ),
-
-                  SizedBox(height: responsiveSize(context, 12)),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      top: responsiveSize(context, 8),
-                      bottom: responsiveSize(context, 16),
-                    ),
-                    child: Align(
-                      alignment: Alignment.center,
                       child: SizedBox(
-                        width: responsiveSize(context, 290),
+                        width: responsiveSize(context, 265),
                         child: Text(
-                          'By signing up, you accept the Terms of Use and Privacy Policy of how we process your data.',
-                          style: Theme.of(context).textTheme.labelMedium!
-                              .copyWith(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                          textAlign: TextAlign.center,
+                          'Connect with your community wherever you are',
+                          style: Theme.of(context).textTheme.headlineLarge!
+                              .copyWith(color: Colors.white),
+                          softWrap: true,
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+          
+                    //auth bittons
+                    SizedBox(height: responsiveSize(context, 16)),
+                    _onboardingButtons(
+                      context,
+                      false,
+                      CustomColors.button1,
+                      ImageStrings.apple,
+                      'Connect With AppleID',
+                    ),
+                    SizedBox(height: responsiveSize(context, 8)),
+                    _onboardingButtons(
+                      context,
+                      false,
+                      CustomColors.button2,
+                      ImageStrings.google,
+                      'Connect With Google',
+                    ),
+                    SizedBox(height: responsiveSize(context, 8)),
+                    _onboardingButtons(
+                      context,
+                      true,
+                      Colors.transparent,
+                      ImageStrings.mail,
+                      'Connect With E-mail',
+                    ),
+          
+                    SizedBox(height: responsiveSize(context, 12)),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: responsiveSize(context, 8),
+                        bottom: responsiveSize(context, 16),
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: SizedBox(
+                          width: responsiveSize(context, 290),
+                          child: Text(
+                            'By signing up, you accept the Terms of Use and Privacy Policy of how we process your data.',
+                            style: Theme.of(context).textTheme.labelMedium!
+                                .copyWith(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
