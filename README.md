@@ -6,8 +6,8 @@ This is a test prroject to show UI fidelity and flutter fundamentals.
 -The onboarding screen with a pop up bottom modal sheet to select a language
 
 <p>
-<img src="assets/screenshots/Sc_1.png" alt="onboarding screen" width="220" height="500"/>
- <img src="assets/screenshots/Sc_2.png" alt="onboarding screen" width="220" height="500"/>  
+<img src="assets/utility_images/Sc_1.png" alt="onboarding screen" width="220" height="500"/>
+ <img src="assets/utilitu_images/Sc_2.png" alt="onboarding screen" width="220" height="500"/>  
 </p>
 
 ## Steps
