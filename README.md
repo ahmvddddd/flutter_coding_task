@@ -3,8 +3,24 @@
 This is a test prroject to show UI fidelity and flutter fundamentals.
 
 ## screenshots
--The onboarding screen with a pop up bottom modal sheet to select a language 
+-The onboarding screen with a pop up bottom modal sheet to select a language
 
+<p>
+<img src="assets/screenshots/Sc_1.png" alt="onboarding screen" width="220" height="500"/>
+ <img src="assets/screenshots/Sc_2.png" alt="onboarding screen" width="220" height="500"/>  
+</p>
+
+## Steps
+1. I reviewed the figma project to understand the concept of the design
+2. I copied text strings, radii size and widget dimensions from Figma to my clipboard
+3. I downloaded all relevant images and assets
+4. I created a new flutter project and named it flutter_test_project
+5. created a dart theme file and dart thext theme file and used it in my app.dart file
+6. Created a custom responsive dart file that scales widget dimensions and text size with respect to screen size
+7. I integrated the responsive helper class with my onboarding screen and adjusted the dimension of widgets as well as text to reponsive sizes.
+8. I built the apk file after successfull completion of the design
+
+   
 ## Getting Started
 
 Prerequisites
@@ -21,11 +37,11 @@ A connected device or emulator for testing
 Getting Started
 1. Clone the repository
 ```
-   git clone https://github.com/ahmvddddd/SquareParts.git
+   git clone https://github.com/ahmvddddd/flutter_test_project.git
 ```
 Navigate to the project directory:
 ```
-cd SquareParts
+cd flutter_test_project
 ```
 
 2. Install dependencies
